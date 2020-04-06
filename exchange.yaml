@@ -1,0 +1,154 @@
+basePath: /
+consumes:
+  - application/json
+host: briskly.online
+info:
+  description: Briskly Exchange
+  title: Briskly Exchange
+  version: '0.1'
+produces:
+  - application/json
+schemes:
+  - http
+swagger: '2.0'
+
+paths:
+  /stub/:
+    get:
+      description: Заглушка
+      responses:
+        default:
+          $ref: '#/responses/Stub'
+
+definitions:
+  # main
+  Catalog:
+    description: Каталог
+    properties:
+      categories:
+        items:
+          $ref: '#/definitions/Category'
+        type: array
+      items:
+        items:
+          $ref: '#/definitions/Item'
+        type: array
+      tables:
+        items:
+          $ref: '#/definitions/Table'
+        type: array
+    type: object
+  Order:
+    description: Заказ
+    properties:
+      id:
+        description: Идентификатор заказа
+        type: string
+      created_at:
+        description: Время создания
+        format: datetime
+        type: string
+      customer:
+        $ref: '#/definitions/OrderCustomer'
+      items:
+        items:
+          $ref: '#/definitions/OrderItem'
+        type: array
+      status:
+        description: Статус
+        enum:
+        - paid
+        type: string
+      store_id:
+        description: Идентификатор магазина
+        type: string
+      total_amount:
+        description: Общая сумма
+        type: number
+    type: object
+  # parts
+  Category:
+    description: Категория
+    properties:
+      id:
+        description: Идентификатор
+        type: string
+      name:
+        description: Наименование
+        type: string
+    type: object
+  Item:
+    description: Товар
+    properties:
+      id:
+        description: Идентификатор
+        type: string
+      barcodes:
+        items:
+          type: string
+        type: array
+      category_id:
+        description: Идентификатор категории
+        type: string
+      description:
+        description: Описание
+        type: string
+      images_links:
+        items:
+          type: string
+        type: array
+      name:
+        description: Наименование
+        type: string
+      price:
+        description: Цена
+        type: number
+      unit_id:
+        description: Идентификатор единицы измерения (ОКЕИ)
+        type: integer
+    type: object
+  OrderCustomer:
+    description: Клиент заказа
+    properties:
+      email:
+        description: E-mail
+        type: string
+      phone:
+        description: Телефон
+        type: string
+    type: object
+  OrderItem:
+    description: Позиция заказа
+    properties:
+      amount:
+        description: Сумма
+        type: number
+      item_id:
+        description: Идентификатор товара
+        type: string
+      price:
+        description: Цена
+        type: number
+      quantity:
+        description: Количество
+        type: integer
+    type: object
+  Table:
+    description: Столик
+    properties:
+      id:
+        description: Идентификатор
+        type: string
+      name:
+        description: Наименование
+        type: string
+    type: object
+
+responses:
+  Stub:
+    description: Заглушка
+    schema:
+      properties:
+        stub:
+          type: string
+      type: object

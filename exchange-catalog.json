@@ -1,0 +1,49 @@
+{
+    "categories": [
+        {
+            "id": "d10ad4d9-93c1-4405-9048-a1799000a942",
+            "name": "Еда"
+        },
+        {
+            "id": "fb0d893a-cb43-479f-80fa-2f30b5ef39c5",
+            "name": "Напитки"
+        }
+    ],
+    "items": [
+        {
+            "id": "b75f47e9-03a0-41df-8c18-5ca87c75c72d",
+            "barcodes": [
+                "1234567890123"
+            ],
+            "category_id": "d10ad4d9-93c1-4405-9048-a1799000a942",
+            "description": "Описание хлеба.",
+            "images_links": [
+                "http://example.com/example.png"
+            ],
+            "name": "Хлеб",
+            "price": 30,
+            "unit_id": 796
+        },
+        {
+            "id": "6737ed1f-bc88-4cc9-a6ad-700c507f642c",
+            "barcodes": [
+                "1234567890123"
+            ],
+            "category_id": "fb0d893a-cb43-479f-80fa-2f30b5ef39c5",
+            "description": "Описание молока.",
+            "name": "Молоко (1 л)",
+            "price": 95,
+            "unit_id": 796
+        }
+    ],
+    "tables": [
+        {
+            "id": "1df0234f-16e7-48ad-ad0c-a7e687133f83",
+            "name": "Столик № 1"
+        },
+        {
+            "id": "d15acf69-2d24-409f-981d-cf25ae88e0f2",
+            "name": "Столик № 2"
+        }
+    ]
+}
